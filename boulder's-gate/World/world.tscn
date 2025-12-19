@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://djwbfrumhda3k"]
+[gd_scene load_steps=5 format=3 uid="uid://djwbfrumhda3k"]
+
+[ext_resource type="PackedScene" uid="uid://dbm8txgvi4day" path="res://Player/player.tscn" id="1_62w18"]
+[ext_resource type="PackedScene" uid="uid://d103yga46rb2p" path="res://Boulder/boulder.tscn" id="2_8a836"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a836"]
+size = Vector2(1194, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8job"]
+size = Vector2(21, 648)
 
 [node name="World" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("boulder") instance=ExtResource("1_62w18")]
+position = Vector2(576, 321)
+boulder = NodePath("../Boulder")
+speed = 240
+
+[node name="Boulder" parent="." instance=ExtResource("2_8a836")]
+position = Vector2(897, 321)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 642)
+shape = SubResource("RectangleShape2D_8a836")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6.5, 324)
+shape = SubResource("RectangleShape2D_j8job")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1143, 324)
+shape = SubResource("RectangleShape2D_j8job")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 5)
+shape = SubResource("RectangleShape2D_8a836")
