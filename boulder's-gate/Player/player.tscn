@@ -7,12 +7,14 @@
 radius = 26.076809
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
-size = Vector2(10.5, 21)
+size = Vector2(15.5, 21)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_4ntmi")
+speed = 240
+rotation_speed = 2.3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5707964
@@ -27,5 +29,5 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoulderArea"]
-position = Vector2(33.75, 0)
+position = Vector2(36.25, 0)
 shape = SubResource("RectangleShape2D_btcbx")
