@@ -1,0 +1,66 @@
+{
+	"categories": [
+		{
+			"uuid": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"title": "Task",
+			"color": "0078d4"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "bc698099-cc1a-4296-9f6e-8bb828629b03",
+			"title": "Todo",
+			"tasks": [
+				"663b6888-4bfa-4873-a7e6-dfad84da7d94",
+				"14536476-9198-4236-9a61-ad8d6ee8fa07",
+				"fdc13d5c-7b27-445a-b364-54a49bc51c48"
+			]
+		},
+		{
+			"uuid": "61537007-83be-4c40-aa8a-7282430ed6d8",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "68763e59-16e4-48b3-8c98-ebfff56ff2a3",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "663b6888-4bfa-4873-a7e6-dfad84da7d94",
+			"title": "Player Movement",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "14536476-9198-4236-9a61-ad8d6ee8fa07",
+			"title": "Boulder physics",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "fdc13d5c-7b27-445a-b364-54a49bc51c48",
+			"title": "Picking up & throwing boulder",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"bc698099-cc1a-4296-9f6e-8bb828629b03"
+			],
+			[
+				"61537007-83be-4c40-aa8a-7282430ed6d8"
+			],
+			[
+				"68763e59-16e4-48b3-8c98-ebfff56ff2a3"
+			]
+		]
+	}
+}
