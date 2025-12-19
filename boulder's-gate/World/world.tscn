@@ -14,10 +14,10 @@ size = Vector2(21, 648)
 [node name="Player" parent="." node_paths=PackedStringArray("boulder") instance=ExtResource("1_62w18")]
 position = Vector2(576, 321)
 boulder = NodePath("../Boulder")
-speed = 240
 
-[node name="Boulder" parent="." instance=ExtResource("2_8a836")]
+[node name="Boulder" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8a836")]
 position = Vector2(897, 321)
+player = NodePath("../Player")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
