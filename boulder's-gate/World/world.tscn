@@ -84,8 +84,9 @@ shape = SubResource("RectangleShape2D_k8do8")
 position = Vector2(9, 108)
 shape = SubResource("RectangleShape2D_k8do8")
 
-[node name="EnemySpawner" type="Node2D" parent="."]
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_j8job")
+player = NodePath("../Player")
 enemy = ExtResource("2_3f78f")
 
 [node name="MiniWaves" type="Timer" parent="EnemySpawner"]

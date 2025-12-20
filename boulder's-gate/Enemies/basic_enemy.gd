@@ -6,8 +6,14 @@ extends CharacterBody2D
 
 @export var speed : int
 
+var speed_multiplier := 1.0
+
 func _physics_process(_delta: float) -> void:
-	velocity = Vector2.RIGHT.rotated(rotation) * speed
+	if Global.p_invisible == true:
+		speed_multiplier = 0.3
+	else:
+		speed_multiplier = 1.0
+	velocity = Vector2.RIGHT.rotated(rotation) * speed * speed_multiplier
 	move_and_slide()
 	check_boulder_collision()
 

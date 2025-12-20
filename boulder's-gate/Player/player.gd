@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal hit
 
 @onready var boulder_area: Area2D = $BoulderArea
+@onready var invis_frames: Timer = $InvisFrames
 
 @export var boulder : CharacterBody2D
 @export var speed : int
@@ -58,5 +59,12 @@ func throw_boulder():
 	set_state(States.WALKING)
 	boulder.set_state(boulder.States.ROLLING)
 
+#enemy hits you
 func _on_enemey_area_body_entered(body: Node2D) -> void:
-	emit_signal("hit")
+		if !Global.p_invisible:
+			invis_frames.start()
+			Global.p_invisible = true
+			Global.p_health -= 1
+
+func _on_invis_frames_timeout() -> void:
+	Global.p_invisible = false
