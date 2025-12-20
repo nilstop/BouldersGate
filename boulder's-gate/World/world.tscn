@@ -1,38 +1,149 @@
-[gd_scene load_steps=5 format=3 uid="uid://djwbfrumhda3k"]
+[gd_scene load_steps=9 format=3 uid="uid://djwbfrumhda3k"]
 
 [ext_resource type="PackedScene" uid="uid://dbm8txgvi4day" path="res://Player/player.tscn" id="1_62w18"]
+[ext_resource type="PackedScene" uid="uid://bt7f2d1jlos3d" path="res://Enemies/basic_enemy.tscn" id="2_3f78f"]
 [ext_resource type="PackedScene" uid="uid://d103yga46rb2p" path="res://Boulder/boulder.tscn" id="2_8a836"]
+[ext_resource type="Script" uid="uid://bcx5o3a2foia5" path="res://Enemies/enemy_spawner.gd" id="3_j8job"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8a836"]
-size = Vector2(1194, 20)
+size = Vector2(1152, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8job"]
 size = Vector2(21, 648)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f78f"]
+size = Vector2(468.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8do8"]
+size = Vector2(19, 215)
+
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("boulder") instance=ExtResource("1_62w18")]
+unique_name_in_owner = true
 position = Vector2(576, 321)
 boulder = NodePath("../Boulder")
+rotation_speed = 1.8
+boulder_distance = 75
 
 [node name="Boulder" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8a836")]
 position = Vector2(897, 321)
 player = NodePath("../Player")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Boundaries" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(576, 642)
 shape = SubResource("RectangleShape2D_8a836")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(6.5, 324)
 shape = SubResource("RectangleShape2D_j8job")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(1143, 324)
 shape = SubResource("RectangleShape2D_j8job")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(576, 5)
 shape = SubResource("RectangleShape2D_8a836")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(231.5, 10)
+shape = SubResource("RectangleShape2D_3f78f")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
+position = Vector2(917.75, 10)
+shape = SubResource("RectangleShape2D_3f78f")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+position = Vector2(231.5, 637)
+shape = SubResource("RectangleShape2D_3f78f")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
+position = Vector2(917.75, 637)
+shape = SubResource("RectangleShape2D_3f78f")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1142.5, 539.5)
+shape = SubResource("RectangleShape2D_k8do8")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1142.5, 108)
+shape = SubResource("RectangleShape2D_k8do8")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Walls"]
+position = Vector2(9, 539.5)
+shape = SubResource("RectangleShape2D_k8do8")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Walls"]
+position = Vector2(9, 108)
+shape = SubResource("RectangleShape2D_k8do8")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("3_j8job")
+enemy = ExtResource("2_3f78f")
+
+[node name="MiniWaves" type="Timer" parent="EnemySpawner"]
+wait_time = 5.0
+autostart = true
+
+[node name="WallRects" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="WallRects"]
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 463.0
+offset_bottom = 39.0
+
+[node name="ColorRect2" type="ColorRect" parent="WallRects"]
+offset_left = 683.0
+offset_top = -1.0
+offset_right = 1149.0
+offset_bottom = 39.0
+
+[node name="ColorRect3" type="ColorRect" parent="WallRects"]
+offset_left = 4.0
+offset_top = 607.0
+offset_right = 466.0
+offset_bottom = 647.0
+
+[node name="ColorRect4" type="ColorRect" parent="WallRects"]
+offset_left = 683.0
+offset_top = 607.0
+offset_right = 1149.0
+offset_bottom = 647.0
+
+[node name="ColorRect7" type="ColorRect" parent="WallRects"]
+offset_left = 1152.0
+offset_top = 431.6059
+offset_right = 1366.9978
+offset_bottom = 471.6059
+rotation = 1.5707964
+
+[node name="ColorRect8" type="ColorRect" parent="WallRects"]
+offset_left = 1152.0
+offset_top = -0.7491913
+offset_right = 1368.7562
+offset_bottom = 39.25081
+rotation = 1.5707964
+
+[node name="ColorRect9" type="ColorRect" parent="WallRects"]
+offset_left = 40.000008
+offset_top = 431.6059
+offset_right = 254.9978
+offset_bottom = 471.6059
+rotation = 1.5707964
+
+[node name="ColorRect10" type="ColorRect" parent="WallRects"]
+offset_left = 40.000008
+offset_top = -0.7491913
+offset_right = 256.75623
+offset_bottom = 39.25081
+rotation = 1.5707964
+
+[connection signal="timeout" from="EnemySpawner/MiniWaves" to="EnemySpawner" method="_on_mini_waves_timeout"]

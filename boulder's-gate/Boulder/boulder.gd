@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var player : CharacterBody2D
 @export var speed := 300
+@export var vel_damping : float
+
 
 enum States {ROLLING, AIMING}
 
@@ -28,6 +30,5 @@ func _physics_process(delta: float) -> void:
 		rotation = velocity.angle()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision and state == States.ROLLING:
-		print(velocity)
 		velocity = velocity.bounce(collision.get_normal())
-		print(velocity)
+		velocity *= vel_damping

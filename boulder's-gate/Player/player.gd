@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hit
+
 @onready var boulder_area: Area2D = $BoulderArea
 
 @export var boulder : CharacterBody2D
@@ -55,3 +57,6 @@ func pick_up_boulder():
 func throw_boulder():
 	set_state(States.WALKING)
 	boulder.set_state(boulder.States.ROLLING)
+
+func _on_enemey_area_body_entered(body: Node2D) -> void:
+	emit_signal("hit")

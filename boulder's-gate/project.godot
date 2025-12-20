@@ -15,6 +15,10 @@ run/main_scene="uid://djwbfrumhda3k"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -22,6 +26,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+
+[global_group]
+
+boulder=""
 
 [input]
 
@@ -58,9 +66,11 @@ pick={
 
 [layer_names]
 
-2d_physics/layer_1="Walls"
-2d_physics/layer_2="Boulder interaction"
+2d_physics/layer_1="Boundaries"
+2d_physics/layer_2="Boulder"
 2d_physics/layer_3="Player"
+2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Enemy Walls"
 
 [rendering]
 

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt7f2d1jlos3d"]
+
+[ext_resource type="Texture2D" uid="uid://b4f8odjq770f2" path="res://icon.svg" id="1_221se"]
+[ext_resource type="Script" uid="uid://csvm87vbkk41y" path="res://Enemies/basic_enemy.gd" id="1_dvx36"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvx36"]
+radius = 19.235384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gie15"]
+radius = 15.132746
+
+[node name="BasicEnemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 28
+script = ExtResource("1_dvx36")
+speed = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_221se")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dvx36")
+
+[node name="BoulderArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoulderArea"]
+shape = SubResource("CircleShape2D_gie15")
+
+[connection signal="body_entered" from="BoulderArea" to="." method="_on_area_2d_body_entered"]

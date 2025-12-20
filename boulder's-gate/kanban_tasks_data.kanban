@@ -11,15 +11,23 @@
 			"uuid": "bc698099-cc1a-4296-9f6e-8bb828629b03",
 			"title": "Todo",
 			"tasks": [
-				"663b6888-4bfa-4873-a7e6-dfad84da7d94",
-				"14536476-9198-4236-9a61-ad8d6ee8fa07",
-				"fdc13d5c-7b27-445a-b364-54a49bc51c48"
+				"d3e206f8-5c6c-46d0-b7e1-b3e8c34ac33b",
+				"be14ee4e-6f3a-4440-b944-5e92e8132a6c",
+				"f759fa47-7b8b-45b6-be56-f9ac478eac2e",
+				"79be0ed5-1970-44ca-a7db-25fc3d9df445"
 			]
 		},
 		{
 			"uuid": "61537007-83be-4c40-aa8a-7282430ed6d8",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"14536476-9198-4236-9a61-ad8d6ee8fa07",
+				"663b6888-4bfa-4873-a7e6-dfad84da7d94",
+				"fdc13d5c-7b27-445a-b364-54a49bc51c48",
+				"129b6c78-2013-49d9-a973-4109452e3699",
+				"05aa2e03-f3fc-4424-ba4c-ab5f02300273",
+				"28373992-6d1d-45b8-a54b-023146f99753"
+			]
 		},
 		{
 			"uuid": "68763e59-16e4-48b3-8c98-ebfff56ff2a3",
@@ -45,6 +53,55 @@
 		{
 			"uuid": "fdc13d5c-7b27-445a-b364-54a49bc51c48",
 			"title": "Picking up & throwing boulder",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "129b6c78-2013-49d9-a973-4109452e3699",
+			"title": "Enemy spawning",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "05aa2e03-f3fc-4424-ba4c-ab5f02300273",
+			"title": "Enemy Movement",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "28373992-6d1d-45b8-a54b-023146f99753",
+			"title": "Kill enemy",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "d3e206f8-5c6c-46d0-b7e1-b3e8c34ac33b",
+			"title": "Waves",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "be14ee4e-6f3a-4440-b944-5e92e8132a6c",
+			"title": "Die by enemies and boulder",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "f759fa47-7b8b-45b6-be56-f9ac478eac2e",
+			"title": "Large Enemy",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "79be0ed5-1970-44ca-a7db-25fc3d9df445",
+			"title": "Health",
 			"description": "",
 			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
 			"steps": []
