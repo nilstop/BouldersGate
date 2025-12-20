@@ -4,6 +4,9 @@ signal hit
 
 @onready var boulder_area: Area2D = $BoulderArea
 @onready var invis_frames: Timer = $InvisFrames
+@onready var flash_timer: Timer = $FlashTimer
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 @export var boulder : CharacterBody2D
 @export var speed : int
@@ -61,10 +64,22 @@ func throw_boulder():
 
 #enemy hits you
 func _on_enemey_area_body_entered(body: Node2D) -> void:
-		if !Global.p_invisible:
+		if !Global.p_invisible and state != States.AIMING:
+			collision_shape.disabled = true
+			sprite.visible = !sprite.visible
+			flash_timer.start()
 			invis_frames.start()
+			emit_signal("hit")
 			Global.p_invisible = true
 			Global.p_health -= 1
+			if body.is_in_group("enemy"):
+				body.die()
 
 func _on_invis_frames_timeout() -> void:
 	Global.p_invisible = false
+	collision_shape.disabled = false
+	flash_timer.stop()
+	sprite.visible = true
+
+func _on_flash_timer_timeout() -> void:
+	sprite.visible = !sprite.visible

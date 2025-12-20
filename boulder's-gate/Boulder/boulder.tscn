@@ -9,7 +9,6 @@ radius = 35.510563
 [node name="Boulder" type="CharacterBody2D" groups=["boulder"]]
 collision_layer = 2
 script = ExtResource("1_v1ejd")
-speed = 450
 vel_damping = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
