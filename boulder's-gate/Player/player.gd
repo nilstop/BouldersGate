@@ -34,7 +34,7 @@ func rotate_toward_mouse_slowly(delta):
 
 func _process(delta: float) -> void:
 	if state == States.WALKING:
-		rotation = lerp_angle(rotation, global_position.angle_to_point(get_global_mouse_position()), 0.3)
+		rotation = lerp_angle(rotation, global_position.angle_to_point(get_global_mouse_position()), 0.2)
 
 
 func _physics_process(delta: float) -> void:
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		boulder.move_and_collide(global_position + Vector2.RIGHT.rotated(rotation) * boulder_distance - boulder.global_position)
 		boulder.rotation = rotation
 	get_input()
-	move_and_slide()
+	move_and_collide(velocity * delta)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("pick"):

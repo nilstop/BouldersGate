@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://csvm87vbkk41y" path="res://Enemies/basic_enemy.gd" id="1_dvx36"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvx36"]
-radius = 19.235384
+radius = 15.033297
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gie15"]
-radius = 15.132746
+radius = 18.0
 
 [node name="BasicEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
-collision_mask = 28
+collision_mask = 30
 script = ExtResource("1_dvx36")
 speed = 100
 

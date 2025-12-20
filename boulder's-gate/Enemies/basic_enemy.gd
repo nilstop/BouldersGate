@@ -14,14 +14,19 @@ func set_sm(new_sm):
 func _ready() -> void:
 	player.connect("hit", slow_down)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#if Global.p_invisible == true:
 	#	speed_multiplier = 0.3
 	#else:
 	#	speed_multiplier = 1.0
+	if Global.p_invisible:
+		set_collision_mask_value(3, false)
+	else:
+		set_collision_mask_value(3, true)
 	velocity = Vector2.RIGHT.rotated(rotation) * speed * speed_multiplier
-	move_and_slide()
+	move_and_collide(velocity * delta)
 	check_boulder_collision()
+	
 
 func _process(_delta: float) -> void:
 	look_at(player.global_position)
@@ -38,5 +43,5 @@ func slow_down():
 func check_boulder_collision():
 	if boulder_area.has_overlapping_bodies():
 		var body = boulder_area.get_overlapping_bodies()[0]
-		if body.state == body.States.ROLLING:
+		if body.state == body.States.ROLLING and body.current_velocity > 150.0:
 			die()
