@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbm8txgvi4day"]
+[gd_scene load_steps=7 format=3 uid="uid://dbm8txgvi4day"]
 
 [ext_resource type="Script" uid="uid://sv6j76j51l0n" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://b4f8odjq770f2" path="res://icon.svg" id="1_l8h54"]
@@ -11,6 +11,9 @@ size = Vector2(17, 56)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btcbx"]
 radius = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwnis"]
+radius = 26.019224
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -33,20 +36,27 @@ texture = ExtResource("1_l8h54")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4ntmi")
 
-[node name="BoulderArea" type="Area2D" parent="."]
+[node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoulderArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2(41.5, 0)
 shape = SubResource("RectangleShape2D_btcbx")
 
-[node name="HitArea" type="Area2D" parent="."]
+[node name="EnemyHitArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 10
+collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitArea"]
 shape = SubResource("CircleShape2D_btcbx")
+
+[node name="BoulderHitArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoulderHitArea"]
+shape = SubResource("CircleShape2D_gwnis")
 
 [node name="InvisFrames" type="Timer" parent="."]
 wait_time = 3.0
@@ -54,6 +64,7 @@ wait_time = 3.0
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.35
 
-[connection signal="body_entered" from="HitArea" to="." method="_on_enemey_area_body_entered"]
+[connection signal="body_entered" from="EnemyHitArea" to="." method="_on_enemey_area_body_entered"]
+[connection signal="body_entered" from="BoulderHitArea" to="." method="_on_boulder_hit_area_body_entered"]
 [connection signal="timeout" from="InvisFrames" to="." method="_on_invis_frames_timeout"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

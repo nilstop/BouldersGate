@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc6dql68q3qb6"]
+
+[ext_resource type="PackedScene" uid="uid://bt7f2d1jlos3d" path="res://Enemies/enemy.tscn" id="1_np8pc"]
+[ext_resource type="Script" uid="uid://bqdhf3tbv0xyj" path="res://Enemies/Enemy Types/basic_enemey.gd" id="2_f4ssp"]
+[ext_resource type="Script" uid="uid://c2ag37nc0vc1k" path="res://Enemies/Enemy Types/taking_damage_basic.gd" id="3_c1826"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1eel6"]
+radius = 16.27882
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxlwr"]
+radius = 17.0
+
+[node name="BasicEnemey" instance=ExtResource("1_np8pc")]
+script = ExtResource("2_f4ssp")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_1eel6")
+
+[node name="Taking Damage Basic" type="Node2D" parent="." index="4"]
+script = ExtResource("3_c1826")
+
+[node name="HitArea" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" index="0"]
+shape = SubResource("CircleShape2D_sxlwr")

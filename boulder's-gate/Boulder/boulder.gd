@@ -33,14 +33,26 @@ func set_sm(new_sm):
 	speed_multiplier = new_sm
 	velocity = Vector2.RIGHT.rotated(rotation) * current_velocity * speed_multiplier
 
-func _physics_process(delta: float) -> void:
-	if !(is_on_floor() or is_on_wall() or is_on_ceiling()):
-		if state == States.AIMING:
-			pass#player.global_position = global_position + Vector2.UP.rotated(rotation) * player_distance
+func _physics_process(delta: float):
 	if state == States.ROLLING:
 		rotation = velocity.angle()
-	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
-	if collision and state == States.ROLLING:
-		velocity = velocity.bounce(collision.get_normal())
-		velocity *= vel_damping
-		current_velocity *= vel_damping
+
+	var remaining := delta
+	var max_steps := 5
+
+	while remaining > 0 and max_steps > 0:
+		var collision := move_and_collide(velocity * remaining)
+		if collision:
+			velocity = velocity.bounce(collision.get_normal())
+			velocity *= vel_damping
+			current_velocity = velocity.length()
+
+			var hit := collision.get_collider()
+			if hit and hit.has_method("take_damage"):
+				hit.take_damage()
+
+			# Move the leftover time after collision
+			remaining *= 0.5
+			max_steps -= 1
+		else:
+			break

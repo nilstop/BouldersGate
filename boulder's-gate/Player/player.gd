@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal hit
 
-@onready var boulder_area: Area2D = $BoulderArea
+@onready var boulder_area: Area2D = $PickupArea
 @onready var invis_frames: Timer = $InvisFrames
 @onready var flash_timer: Timer = $FlashTimer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -20,6 +20,7 @@ var state : States = States.WALKING: set = set_state
 
 func set_state(new_state):
 	state = new_state
+	
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -32,10 +33,10 @@ func rotate_toward_mouse_slowly(delta):
 
 	rotation = rotate_toward(rotation, target_angle, rotation_speed * delta)
 
-func _process(delta: float) -> void:
+func _process(_adelta: float) -> void:
 	if state == States.WALKING:
 		rotation = lerp_angle(rotation, global_position.angle_to_point(get_global_mouse_position()), 0.2)
-
+	
 
 func _physics_process(delta: float) -> void:
 	if state == States.AIMING:
@@ -44,14 +45,14 @@ func _physics_process(delta: float) -> void:
 		boulder.rotation = rotation
 	get_input()
 	move_and_collide(velocity * delta)
-
-func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("pick"):
 		if boulder_area.has_overlapping_bodies():
 			pick_up_boulder()
+
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("pick"):
-			if state == States.AIMING:
-				throw_boulder()
+		if state == States.AIMING:
+			throw_boulder()
 
 func pick_up_boulder():
 	set_state(States.AIMING)
@@ -64,17 +65,8 @@ func throw_boulder():
 
 #enemy hits you
 func _on_enemey_area_body_entered(body: Node2D) -> void:
-	
-		if !Global.p_invisible and state != States.AIMING:
-			collision_shape.disabled = true
-			sprite.visible = !sprite.visible
-			flash_timer.start()
-			invis_frames.start()
-			emit_signal("hit")
-			Global.p_invisible = true
-			Global.p_health -= 1
-			if body.is_in_group("enemy"):
-				body.die()
+		if !Global.p_invisible:
+			lose_health(body)
 
 func _on_invis_frames_timeout() -> void:
 	Global.p_invisible = false
@@ -84,3 +76,17 @@ func _on_invis_frames_timeout() -> void:
 
 func _on_flash_timer_timeout() -> void:
 	sprite.visible = !sprite.visible
+
+func lose_health(body):
+	sprite.visible = !sprite.visible
+	flash_timer.start()
+	invis_frames.start()
+	emit_signal("hit")
+	Global.p_invisible = true
+	Global.p_health -= 1
+	if body.is_in_group("enemy"):
+		body.die()
+
+func _on_boulder_hit_area_body_entered(body: Node2D) -> void:
+	if !Global.p_invisible and state != States.AIMING:
+		lose_health(body)

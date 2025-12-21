@@ -12,15 +12,13 @@
 			"title": "Todo",
 			"tasks": [
 				"d3e206f8-5c6c-46d0-b7e1-b3e8c34ac33b",
-				"f759fa47-7b8b-45b6-be56-f9ac478eac2e"
+				"9e480f25-831e-40bf-800b-98415791a8a2"
 			]
 		},
 		{
 			"uuid": "61537007-83be-4c40-aa8a-7282430ed6d8",
 			"title": "Doing",
-			"tasks": [
-				"79be0ed5-1970-44ca-a7db-25fc3d9df445"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "68763e59-16e4-48b3-8c98-ebfff56ff2a3",
@@ -32,7 +30,9 @@
 				"129b6c78-2013-49d9-a973-4109452e3699",
 				"05aa2e03-f3fc-4424-ba4c-ab5f02300273",
 				"28373992-6d1d-45b8-a54b-023146f99753",
-				"be14ee4e-6f3a-4440-b944-5e92e8132a6c"
+				"be14ee4e-6f3a-4440-b944-5e92e8132a6c",
+				"79be0ed5-1970-44ca-a7db-25fc3d9df445",
+				"f759fa47-7b8b-45b6-be56-f9ac478eac2e"
 			]
 		}
 	],
@@ -103,6 +103,13 @@
 		{
 			"uuid": "79be0ed5-1970-44ca-a7db-25fc3d9df445",
 			"title": "Health",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "9e480f25-831e-40bf-800b-98415791a8a2",
+			"title": "Bomb Enemy",
 			"description": "",
 			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
 			"steps": []

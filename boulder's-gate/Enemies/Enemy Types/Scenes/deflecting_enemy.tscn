@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cngab543ay0ft"]
+
+[ext_resource type="PackedScene" uid="uid://bt7f2d1jlos3d" path="res://Enemies/enemy.tscn" id="1_djjfi"]
+[ext_resource type="Script" uid="uid://csvm87vbkk41y" path="res://Enemies/Enemy Types/deflecting_enemy.gd" id="2_8kpuk"]
+[ext_resource type="PackedScene" uid="uid://1wof5jyrhtls" path="res://Enemies/Composition/taking_damage.tscn" id="3_3mv3v"]
+
+[node name="DeflectingEnemy" instance=ExtResource("1_djjfi")]
+collision_layer = 40
+script = ExtResource("2_8kpuk")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.83339536, 0.83339536)
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(2.2223876, 2.2223876)
+
+[node name="Movement" parent="." index="2"]
+speed = 50
+
+[node name="Taking Damage Deflect" parent="." index="4" instance=ExtResource("3_3mv3v")]
