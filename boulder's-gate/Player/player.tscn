@@ -7,7 +7,7 @@
 radius = 25.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
-size = Vector2(17, 36)
+size = Vector2(17, 56)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btcbx"]
 radius = 26.0
@@ -27,7 +27,7 @@ texture = ExtResource("1_l8h54")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(39.01587, 0.29482883)
 rotation = 1.5707964
-scale = Vector2(0.28782153, 0.1711179)
+scale = Vector2(0.4398434, 0.1711179)
 texture = ExtResource("1_l8h54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

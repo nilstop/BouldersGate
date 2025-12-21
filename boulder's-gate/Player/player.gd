@@ -64,6 +64,7 @@ func throw_boulder():
 
 #enemy hits you
 func _on_enemey_area_body_entered(body: Node2D) -> void:
+	
 		if !Global.p_invisible and state != States.AIMING:
 			collision_shape.disabled = true
 			sprite.visible = !sprite.visible
