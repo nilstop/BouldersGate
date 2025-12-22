@@ -18,6 +18,8 @@ enum States {AIMING, WALKING}
 
 var state : States = States.WALKING: set = set_state
 
+var texture_regions: Array[Rect2i] = [Rect2i(0,0,32,18), Rect2i(32,0,18,24)]
+
 func set_state(new_state):
 	state = new_state
 	
@@ -46,11 +48,15 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_collide(velocity * delta)
 	if Input.is_action_pressed("pick"):
+		sprite.region_rect = texture_regions[1]
+		sprite.offset = Vector2(0,-3)
 		if boulder_area.has_overlapping_bodies():
 			pick_up_boulder()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("pick"):
+		sprite.offset = Vector2.ZERO
+		sprite.region_rect = texture_regions[0]
 		if state == States.AIMING:
 			throw_boulder()
 
@@ -60,6 +66,7 @@ func pick_up_boulder():
 	boulder.player_distance = boulder_distance
 
 func throw_boulder():
+	sprite.region_rect = texture_regions[0]
 	set_state(States.WALKING)
 	boulder.set_state(boulder.States.ROLLING)
 

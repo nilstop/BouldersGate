@@ -12,7 +12,9 @@
 			"title": "Todo",
 			"tasks": [
 				"d3e206f8-5c6c-46d0-b7e1-b3e8c34ac33b",
-				"9e480f25-831e-40bf-800b-98415791a8a2"
+				"9e480f25-831e-40bf-800b-98415791a8a2",
+				"960242b4-d467-487c-8867-795c44de9e08",
+				"85e64f7a-58bc-4636-909e-65f4074b5a02"
 			]
 		},
 		{
@@ -110,6 +112,20 @@
 		{
 			"uuid": "9e480f25-831e-40bf-800b-98415791a8a2",
 			"title": "Bomb Enemy",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "960242b4-d467-487c-8867-795c44de9e08",
+			"title": "Screen Shake",
+			"description": "",
+			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
+			"steps": []
+		},
+		{
+			"uuid": "85e64f7a-58bc-4636-909e-65f4074b5a02",
+			"title": "Progressing Difficulty",
 			"description": "",
 			"category": "76cf2152-6bf8-4ccc-99bb-7f46465c9a7c",
 			"steps": []

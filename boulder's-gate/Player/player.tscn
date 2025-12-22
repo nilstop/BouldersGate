@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbm8txgvi4day"]
+[gd_scene load_steps=8 format=3 uid="uid://dbm8txgvi4day"]
 
 [ext_resource type="Script" uid="uid://sv6j76j51l0n" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://b4f8odjq770f2" path="res://icon.svg" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://bklc4d0gl4j1v" path="res://Player/Zombie.png" id="2_btcbx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
 radius = 25.0
@@ -24,10 +25,14 @@ boulder_distance = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5707964
-scale = Vector2(0.484375, 0.484375)
-texture = ExtResource("1_l8h54")
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_btcbx")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 18)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(39.01587, 0.29482883)
 rotation = 1.5707964
 scale = Vector2(0.4398434, 0.1711179)
