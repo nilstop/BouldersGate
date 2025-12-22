@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://1wof5jyrhtls"]
 
-[ext_resource type="Script" uid="uid://dbn8gtwji3qsg" path="res://Enemies/Composition/taking_damage_deflect.gd" id="1_puuey"]
+[ext_resource type="Script" uid="uid://dbn8gtwji3qsg" path="res://Enemies/Compositioning/taking_damage_deflect.gd" id="1_puuey"]
 
 [node name="Taking Damage" type="Node2D"]
 script = ExtResource("1_puuey")

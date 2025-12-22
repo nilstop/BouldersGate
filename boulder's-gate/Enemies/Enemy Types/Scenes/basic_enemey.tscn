@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc6dql68q3qb6"]
+[gd_scene load_steps=11 format=3 uid="uid://bc6dql68q3qb6"]
 
 [ext_resource type="PackedScene" uid="uid://bt7f2d1jlos3d" path="res://Enemies/enemy.tscn" id="1_np8pc"]
 [ext_resource type="Script" uid="uid://bqdhf3tbv0xyj" path="res://Enemies/Enemy Types/basic_enemey.gd" id="2_f4ssp"]
 [ext_resource type="Script" uid="uid://c2ag37nc0vc1k" path="res://Enemies/Enemy Types/taking_damage_basic.gd" id="3_c1826"]
-[ext_resource type="Texture2D" uid="uid://dlo0j0nlknfvd" path="res://Enemies/Hit-Sheet.png" id="4_aak8c"]
+[ext_resource type="PackedScene" uid="uid://dbbux51r4056j" path="res://Enemies/Compositioning/death_fx.tscn" id="4_aak8c"]
+[ext_resource type="Texture2D" uid="uid://dlo0j0nlknfvd" path="res://Enemies/Hit-Sheet.png" id="5_r7l02"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1eel6"]
 radius = 16.27882
@@ -11,31 +12,31 @@ radius = 16.27882
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxlwr"]
 radius = 17.0
 
-[sub_resource type="Animation" id="Animation_r7l02"]
+[sub_resource type="Animation" id="Animation_np615"]
 resource_name = "die"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DeathFx:visible")
+tracks/0/path = NodePath("Sprite2D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DeathFx:region_rect")
+tracks/1/path = NodePath("DeathFxSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Rect2(0, 0, 20, 21), Rect2(20, 0, 20, 21)]
+"values": [true]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -54,83 +55,59 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/path = NodePath("DeathFxSprite:region_rect")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:collision_mask")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [Rect2(0, 0, 20, 21), Rect2(20, 0, 20, 21)]
 }
 
-[sub_resource type="Animation" id="Animation_iyei4"]
+[sub_resource type="Animation" id="Animation_xluns"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DeathFx:visible")
+tracks/0/path = NodePath("Sprite2D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DeathFx:region_rect")
+tracks/1/path = NodePath("DeathFxSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 20, 21)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("DeathFxSprite:region_rect")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:collision_mask")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [30]
+"update": 0,
+"values": [Rect2(0, 0, 20, 21)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_st6fv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w4b3x"]
 _data = {
-&"RESET": SubResource("Animation_iyei4"),
-&"die": SubResource("Animation_r7l02")
+&"RESET": SubResource("Animation_xluns"),
+&"die": SubResource("Animation_np615")
 }
 
 [node name="BasicEnemey" instance=ExtResource("1_np8pc")]
@@ -139,10 +116,9 @@ script = ExtResource("2_f4ssp")
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_1eel6")
 
-[node name="Taking Damage Basic" type="Node2D" parent="." index="4" node_paths=PackedStringArray("anim_player", "sprite")]
+[node name="Taking Damage Basic" type="Node2D" parent="." index="4" node_paths=PackedStringArray("deathfx")]
 script = ExtResource("3_c1826")
-anim_player = NodePath("../AnimationPlayer")
-sprite = NodePath("../Sprite2D")
+deathfx = NodePath("../DeathFx")
 
 [node name="HitArea" type="Area2D" parent="." index="5"]
 collision_layer = 0
@@ -151,16 +127,21 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" index="0"]
 shape = SubResource("CircleShape2D_sxlwr")
 
-[node name="DeathFx" type="Sprite2D" parent="." index="6"]
-visible = false
-position = Vector2(0.99999994, -2)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("4_aak8c")
-region_enabled = true
-region_rect = Rect2(0, 0, 20, 21)
+[node name="DeathFx" parent="." index="6" node_paths=PackedStringArray("sprite", "anim_player", "death_fx_sprite") instance=ExtResource("4_aak8c")]
+sprite = NodePath("../Sprite2D")
+anim_player = NodePath("../AnimationPlayer")
+death_fx_sprite = NodePath("../DeathFxSprite")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
-&"": SubResource("AnimationLibrary_st6fv")
+&"": SubResource("AnimationLibrary_w4b3x")
 }
 speed_scale = 8.0
+
+[node name="DeathFxSprite" type="Sprite2D" parent="." index="8"]
+visible = false
+position = Vector2(0.99999994, -2)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("5_r7l02")
+region_enabled = true
+region_rect = Rect2(0, 0, 20, 21)

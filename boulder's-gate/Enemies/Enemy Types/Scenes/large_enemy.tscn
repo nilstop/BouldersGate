@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://oqin17ny0hdt"]
+[gd_scene load_steps=3 format=3 uid="uid://oqin17ny0hdt"]
 
 [ext_resource type="PackedScene" uid="uid://cngab543ay0ft" path="res://Enemies/Enemy Types/Scenes/deflecting_enemy.tscn" id="1_tbs3e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qt10f"]
+radius = 43.56604
 
 [node name="LargeEnemy" instance=ExtResource("1_tbs3e")]
 
 [node name="Sprite2D" parent="." index="0"]
 self_modulate = Color(0.6363574, 0.5254989, 0, 1)
 scale = Vector2(0.80874497, 0.8087451)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_qt10f")
 
 [node name="Taking Damage Deflect" parent="." index="4"]
 max_health = 2

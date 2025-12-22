@@ -33,12 +33,14 @@ func set_sm(new_sm):
 	speed_multiplier = new_sm
 	velocity = Vector2.RIGHT.rotated(rotation) * current_velocity * speed_multiplier
 
-func impact():
-	print("impactd")
+func impact(length):
 	if velocity:
 		var saved_velocity = velocity
 		velocity = Vector2.ZERO
-		await get_tree().create_timer(0.05).timeout
+		print(length)
+		print("pre")
+		await get_tree().create_timer(length).timeout
+		print("after")
 		velocity = saved_velocity
 
 func _physics_process(delta: float):

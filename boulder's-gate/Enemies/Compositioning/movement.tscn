@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b66cejrvisc8r"]
 
-[ext_resource type="Script" uid="uid://idkjt8qral27" path="res://Enemies/Composition/enemy_movement.gd" id="1_ltcgs"]
+[ext_resource type="Script" uid="uid://idkjt8qral27" path="res://Enemies/Compositioning/enemy_movement.gd" id="1_ltcgs"]
 
 [node name="Movement" type="Node2D"]
 script = ExtResource("1_ltcgs")
