@@ -37,10 +37,7 @@ func impact(length):
 	if velocity:
 		var saved_velocity = velocity
 		velocity = Vector2.ZERO
-		print(length)
-		print("pre")
 		await get_tree().create_timer(length).timeout
-		print("after")
 		velocity = saved_velocity
 
 func _physics_process(delta: float):

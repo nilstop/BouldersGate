@@ -5,6 +5,12 @@ class_name Deathfx
 @export var anim_player: AnimationPlayer
 @export var death_fx_sprite: Sprite2D
 
+func flash():
+	sprite.self_modulate = Color.WHITE
+	sprite.modulate.v = 15.0
+	await get_tree().create_timer(0.05).timeout
+	sprite.self_modulate = Color.WEB_GREEN
+	sprite.modulate.v = 1.0
 
 func die(body: CharacterBody2D = null):
 	process_mode = Node.PROCESS_MODE_DISABLED

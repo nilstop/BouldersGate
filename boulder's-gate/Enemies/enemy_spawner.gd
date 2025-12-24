@@ -29,7 +29,7 @@ func inst(scene):
 
 func _on_mini_waves_timeout() -> void:
 	for i in 3:
-		inst(deflecting_enemy)
 		inst(basic_enemy)
+	inst(deflecting_enemy)
 	if randi_range(0,0) == 0:
 		inst(large_enemy)

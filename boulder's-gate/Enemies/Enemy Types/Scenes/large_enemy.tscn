@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://oqin17ny0hdt"]
+[gd_scene load_steps=5 format=3 uid="uid://oqin17ny0hdt"]
 
 [ext_resource type="PackedScene" uid="uid://cngab543ay0ft" path="res://Enemies/Enemy Types/Scenes/deflecting_enemy.tscn" id="1_tbs3e"]
+[ext_resource type="Script" uid="uid://c2kda5rko5qq" path="res://Enemies/Compositioning/explosion.gd" id="2_x3knj"]
+[ext_resource type="PackedScene" uid="uid://dgh8fkifeg6c7" path="res://Enemies/Enemy Types/Scenes/explosion.tscn" id="3_ltfvb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qt10f"]
 radius = 43.56604
@@ -16,3 +18,8 @@ shape = SubResource("CircleShape2D_qt10f")
 
 [node name="Taking Damage Deflect" parent="." index="4"]
 max_health = 2
+
+[node name="Explosion" type="Node2D" parent="." index="8" node_paths=PackedStringArray("taking_damage_node")]
+script = ExtResource("2_x3knj")
+taking_damage_node = NodePath("../Taking Damage Deflect")
+explosion = ExtResource("3_ltfvb")

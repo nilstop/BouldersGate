@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbbux51r4056j"]
 
-[ext_resource type="Script" uid="uid://ieoi6fugr2fw" path="res://Enemies/Enemy Types/Scenes/death_fx.gd" id="1_rdpmp"]
+[ext_resource type="Script" uid="uid://ieoi6fugr2fw" path="res://Enemies/Compositioning/death_fx.gd" id="1_rdpmp"]
 
 [node name="DeathFx" type="Node2D"]
 script = ExtResource("1_rdpmp")
